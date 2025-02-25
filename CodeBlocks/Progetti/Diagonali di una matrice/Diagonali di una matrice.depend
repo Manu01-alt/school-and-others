@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1737654601 source:c:\users\pietr\onedrive\desktop\compiti\codeblocks\progetti\diagonali di una matrice\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

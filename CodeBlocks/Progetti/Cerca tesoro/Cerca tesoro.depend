@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1738875526 source:c:\users\pietr\onedrive\desktop\compiti\codeblocks\progetti\cerca tesoro\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

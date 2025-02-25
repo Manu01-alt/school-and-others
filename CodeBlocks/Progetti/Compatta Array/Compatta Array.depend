@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1733683142 source:c:\users\pietr\onedrive\desktop\compiti\codeblocks\progetti\compatta array\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

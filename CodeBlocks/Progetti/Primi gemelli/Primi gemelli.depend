@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1734280272 source:c:\users\pietr\onedrive\desktop\compiti\codeblocks\progetti\primi gemelli\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

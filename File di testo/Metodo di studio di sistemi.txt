@@ -1,0 +1,70 @@
+Architettura:
+	Von Neumann vs. Harvard
+	ISA
+	CISC vs. RISC
+	Ciclo Macchina
+	Interrupt
+	
+Intel 8086: 
+	Registri
+	Memoria: segmento, indirizzamento Lineare vs. Segmento
+	BIU e EU 
+	Prefetch
+	Flag e J*
+	Istruzioni complesse (composte uOPS): LOOP, CALL/RET, POP/PUSH, ...
+	
+
+Evoluzioni architetturali:
+	FPU
+	DMA (Direct Memory Access)
+	Out of Order
+	Unità di calcolo Vettoriali (SIMD)
+	Estensione ISA
+	Superscalarità --> implementazione di più unità di calcolo (ALU, FPU, etc...)
+	Pipeline
+	Branch Prediction
+	MicroProgrammazione
+	Cache
+	SMT (Hyper-Threading)
+	Esecuzione Speculativa
+	Core
+
+
+Come studiare?	
+SMT: 
+		1. Cos'è
+		Tecnica per migliorare l'efficienza di calcolo del processore e le prestazioni, raddoppiando le unità
+		del front-end. Creando un core logico addizionale 	
+		2. Com'è fatto
+		Il processore ha una sola EU, ma viene replicata la parte dei decoder
+		3. Come funziona
+		Facciamo credere al computer la presenza di più core e abbiamo quindi una maggiore potenza di calcolo
+		4. A cosa serve
+		----------------
+		5.Pro e Contro
+
+
+
+
+
+
+
+	
+									ES: Commenta il concetto di segmento
+
+			Una parte di memoria, una zona, a cui si accede usando 1 solo registro, quello di offset (puntatore)
+			ci serve anche un altro registro che punta alla base del segmento, chiamato registro di segmento
+
+
+
+
+
+
+palle bonus
+
+
+
+
+
+
+

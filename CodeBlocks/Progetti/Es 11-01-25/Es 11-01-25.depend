@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1736582427 source:c:\users\pietr\onedrive\desktop\compiti\codeblocks\progetti\es 11-01-25\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
