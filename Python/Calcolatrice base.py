@@ -11,5 +11,4 @@ elif op == '*':
 elif op == '/' and b!=0:
     print (a/b)
 else:
-    print("Operazione non eseguibile.")
-
+    print("Operazione non eseguibile")
