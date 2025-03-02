@@ -4,7 +4,7 @@ Stringa_Completa = ""
 counter,j,i = 0,0,0
 
 while counter <= (len(Stringa1) + len(Stringa2)):
-    if counter % 2 != 0:
+    if counter % 2 == 0:
         if i < len(Stringa2):  
             Stringa_Completa += Stringa2[i]
             i += 1
@@ -16,3 +16,5 @@ while counter <= (len(Stringa1) + len(Stringa2)):
 
 
 print("La stringa alternata e': ",Stringa_Completa)
+
+

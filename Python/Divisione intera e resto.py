@@ -6,3 +6,4 @@ resto = divisore % dividendo
 
 print("Risultato:",quoziente)
 print("Resto:",resto)
+

@@ -1,0 +1,32 @@
+
+import os
+print("Ciao!, Benvenuto nel mio bar.")
+input("(premi un tasto...)")
+print("Presentati pure, come ti chiami?")
+nome = input()
+print("Ciao", nome, "piacere di conoscerti.")
+input("(premi un tasto...)")
+print("Che cosa desideri prendere?")
+bevanda = input()
+print("Va bene,", nome, "una", bevanda, "in arrivo.")
+input("(premi un tasto...)")
+print("...")
+input("(premi un tasto...)")
+print("...")
+input("(premi un tasto...)")
+print("Allora..., sono andato in magazzino a prendere la tua bevanda...")
+input("(premi un tasto...)")
+print("Ma quel frocio di Tonella si è fottuto tutto")
+input("(premi un tasto...)")
+input("[Dici qualcosa]: ")
+print("Ma non ti preoccupare,", nome, "ho un piano B.")
+input("(premi un tasto...)")
+print("Ora prendo un cazzo di lanciafiamme e lo brucio quel figlio di puttana.")
+input("(premi un tasto...)")
+print("Passami la bombola del gas")
+input("(premi un tasto...)")
+print("OPZIONI: 1. Bombola del gas 2.,"bevanda" 3. Pistola")
+input("[Scegli un'opzione]: ")
+
+
+
