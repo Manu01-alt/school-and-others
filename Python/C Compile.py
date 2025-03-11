@@ -15,10 +15,10 @@ filename = input("Source code name: ").strip().lower()
 while not filename.endswith(".c"):
 	filename = input("File is not .c source code!\nSource code name: ").strip().lower()
 # Check if the file is in the current shell directory
-while filename not in os.listdir():
-    files = [entry.name for entry in os.scandir() if entry.is_file() and entry.name.endswith(".c")]
-    print("Available .c files:", files)  # Ora stampa la lista correttamente
-    filename = input("File not found!\nSource code name: ").strip().lower()
+while filename not in [f.lower() for f in os.listdir()]:
+	files = [entry.name for entry in os.scandir() if entry.is_file() and entry.name.lower().endswith(".c")]
+	print("Available .c files:", files)  # Ora stampa la lista correttamente
+	filename = input("File not found!\nSource code name: ").strip().lower()
 
 # ASK FOR OUTPUT NAME
 output_name = input("Output name: ")
@@ -27,10 +27,10 @@ while not re.match ("^[a-zA-Z0-9_-]{1,255}$", output_name):
 	output_name = input("Output name is not valid!\nOutput name: ").strip().lower()
 
 # ASK FOR METHOD
-method = input("Compilation method:\n1. Direct\n2. Step by step\nChoose option: ")
+method = input("Compilation method:\n1. Direct\n2. Step by step\nChoose option: ").strip()
 # Check if method is correct
-while not method in ["1","2"]:
-	method = input("Method not found!\n1. Direct\n2. Step by step\nChoose option: ")
+while method not in ["1", "2"]:
+	method = input("Method not found!\n1. Direct\n2. Step by step\nChoose option: ").strip()
 
 # ASK IF SHOW WARNINGS
 global show_warnings
@@ -39,8 +39,8 @@ show_warnings = show_warnings == "y"
 
 # ASK IF STANDARD ANSI
 global standard_ansi
-standard_ansi = input("Use MinGW ANSI Studio compatibility (y/n): ")
-show_warnings = show_warnings == "y"
+standard_ansi = input("Use MinGW ANSI Studio compatibility (y/n): ").strip().lower()
+standard_ansi = standard_ansi == "y"
 
 # Basic command
 command = (f'gcc {filename}')
