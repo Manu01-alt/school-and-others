@@ -1,37 +1,37 @@
 import random
 
-Turno = True
-ps = 9
-
 word_list = ["arancia", "babbuino", "cammello"]
 
 parola_scelta = random.choice(word_list)
 print(parola_scelta)
 
-segnaposto = ["_"] * len(parola_scelta)
-print(" ".join(segnaposto))
+segnaposto = ""
+lungh_parola = len(parola_scelta)
+for posizione in range(lungh_parola):
+    segnaposto += "_"
+print(segnaposto)
 
 tentativo = ""
+display = segnaposto
+lettere_indovinate = set()
 
+while "_" in display:
+    while not tentativo.isalpha() or len(tentativo) != 1 or tentativo in lettere_indovinate:
+        tentativo = input("Indovina la lettera: ").lower()
 
-while Turno == True:
+    lettere_indovinate.add(tentativo)
 
-    while not tentativo.isalpha() or len(tentativo) != 1:
-        tentativo = input("Inserisci una lettera: ").lower()
-
+    new_display = ""
     for index in range(len(parola_scelta)):
         lettera = parola_scelta[index]
-    
         if lettera == tentativo:
-            segnaposto[index] = lettera
+            new_display += lettera
         else:
-            ps -= 1
-            print("Hai ancora", ps, "tentativi")
+            new_display += display[index]
 
-    print(" ".join(segnaposto))
-    
-    if ps == 0:
-        print("Hai perso!")
-        Turno = False 
+    display = new_display
+    print(display)
+
+print("Hai vinto!")
 
 
