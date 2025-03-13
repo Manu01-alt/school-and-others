@@ -59,8 +59,8 @@ stages = [r'''
 
 word_list = ["arancia", "babbuino", "cammello"]
 
-# TODO-1: - Crea una variabile chiamata 'lives' che tenga traccia del numero di vite rimaste.
-#  Assegna a 'lives' il valore 6.
+lives = 6
+print(stages[lives])
 
 chosen_word = random.choice(word_list)
 print(chosen_word)
@@ -90,8 +90,12 @@ while not game_over:
 
     print(display)
 
-    # TODO-2: - Se guess non è una lettera in chosen_word, riduci di 1 il valore di 'lives'.
-    #  Se 'lives' arriva a 0 il gioco deve terminare e stampare a schermo 'Hai perso.'
+    if guess not in chosen_word:
+        lives -= 1
+        if lives == 0:
+            game_over = True
+            print("Hai perso.")
+
 
     if "_" not in display:
         game_over = True
@@ -100,3 +104,4 @@ while not game_over:
     # TODO-3: - visualizza l'ASCII art di 'stages'
     #  corrispondente al numero di vite rimaste al giocatore.
 
+    print(stages[lives])
