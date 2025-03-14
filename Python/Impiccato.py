@@ -102,3 +102,4 @@ while not game_over:
         print("You win.")
 
     print(stages[lives])
+
