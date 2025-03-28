@@ -1,1 +1,2 @@
 Manuel, 2025-03-27, Trasporti, 12, "Comprato biglietto da 8 corse"
+Pietro, 27/03/2025, Legale, 100, "Causa familiare"
