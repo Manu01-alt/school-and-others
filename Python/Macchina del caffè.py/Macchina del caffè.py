@@ -1,14 +1,17 @@
-#Programma che simula una macchina del caffè
 import main
-var = True
+import os
+
+macchinetta = True
 
 Quarter = 0.25
 Dime = 0.10
 Nickel = 0.05
 Penny = 0.01
+importo_totale = 0.0
 
 
 def pagamento(tipo_caffe):
+    global importo_totale
     print(f"Quanti quarter vuoi inserire?")
     quarter = int(input())
     print(f"Quanti dime vuoi inserire?")
@@ -21,26 +24,29 @@ def pagamento(tipo_caffe):
     if tipo_caffe == "espresso":
         if totale >= main.MENU["espresso"]["cost"]:
             resto = totale - main.MENU["espresso"]["cost"]
-            print(f"il resto e': {resto}€")
+            importo_totale += main.MENU["espresso"]["cost"]
+            print(f"Il resto è: {resto:.2f}€")
             return 1
-        elif totale < main.MENU["espresso"]["cost"]:
-            print("Non hai abbastanza soldi.")
+        else:
+            print("Spiacente, non hai inserito abbastanza denaro. Denaro rimborsato.")
             return 0
     elif tipo_caffe == "latte":
         if totale >= main.MENU["latte"]["cost"]:
             resto = totale - main.MENU["latte"]["cost"]
-            print(f"il resto e': {resto}€")
+            importo_totale += main.MENU["latte"]["cost"]
+            print(f"Il resto è: {resto:.2f}€")
             return 1
-        elif totale < main.MENU["latte"]["cost"]:
-            print("Non hai abbastanza soldi.")
+        else:
+            print("Spiacente, non hai inserito abbastanza denaro. Denaro rimborsato.")
             return 0
     elif tipo_caffe == "cappuccino":
         if totale >= main.MENU["cappuccino"]["cost"]:
             resto = totale - main.MENU["cappuccino"]["cost"]
-            print(f"il resto e': {resto}€")
+            importo_totale += main.MENU["cappuccino"]["cost"]
+            print(f"Il resto è: {resto:.2f}€")
             return 1
         else:
-            print("Non hai abbastanza soldi.")
+            print("Spiacente, non hai inserito abbastanza denaro. Denaro rimborsato.")
             return 0
 
 
@@ -66,22 +72,22 @@ def prepara_caffe(tipo_caffe):
         else:
             print("Risorse insufficienti per preparare un cappuccino.")
 
-while var:
-    print("Benvenuto nella macchina del caffè!")
-    print("Cosa desideri? (espresso/latte/cappuccino):")
 
-    richiesta = input().lower()
+while macchinetta:
+    print("\nBenvenuto nella macchina del caffè!\n")
+    richiesta = input("Cosa desideri? (espresso/latte/cappuccino):").lower()
 
     if richiesta == "report":
         print("Risorse disponibili:")
         print(f"Acqua: {main.resources['water']}ml")
         print(f"Latte: {main.resources['milk']}ml")
         print(f"Caffè: {main.resources['coffee']}g")
+        print(f"Importo totale accumulato: {importo_totale:.2f}€")
     elif richiesta == "off":
         print("Macchina spenta.")
-        var = False
+        macchinetta = False
     elif richiesta in main.MENU:
-        print(f"un {richiesta} costa {round(main.MENU[richiesta]['cost'], 2)}€")
+        print(f"Un {richiesta} costa {main.MENU[richiesta]['cost']:.2f}€")
         if pagamento(richiesta) == 1:
             prepara_caffe(richiesta)
             print(f"Ecco il tuo {richiesta}. Buona degustazione!")
