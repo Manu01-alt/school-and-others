@@ -9,6 +9,22 @@ Nickel = 0.05
 Penny = 0.01
 importo_totale = 0.0
 
+def verifica_risorse(tipo_caffe):
+    if tipo_caffe == "espresso":
+        acqua_disponibile = main.resources["water"] >= main.MENU["espresso"]["ingredients"]["water"]
+        caffe_disponibile = main.resources["coffee"] >= main.MENU["espresso"]["ingredients"]["coffee"]
+        return True
+    elif tipo_caffe == "latte":
+        acqua_disponibile = main.resources["water"] >= main.MENU["latte"]["ingredients"]["water"]
+        latte_disponibile = main.resources["milk"] >= main.MENU["latte"]["ingredients"]["milk"]
+        caffe_disponibile = main.resources["coffee"] >= main.MENU["latte"]["ingredients"]["coffee"]
+        return True
+    elif tipo_caffe == "cappuccino":
+        acqua_disponibile = main.resources["water"] >= main.MENU["cappuccino"]["ingredients"]["water"]
+        latte_disponibile = main.resources["milk"] >= main.MENU["cappuccino"]["ingredients"]["milk"]
+        caffe_disponibile = main.resources["coffee"] >= main.MENU["cappuccino"]["ingredients"]["coffee"]
+        return True
+    return False
 
 def pagamento(tipo_caffe):
     global importo_totale
@@ -75,7 +91,7 @@ def prepara_caffe(tipo_caffe):
 
 while macchinetta:
     print("\nBenvenuto nella macchina del caffè!\n")
-    richiesta = input("Cosa desideri? (espresso/latte/cappuccino):").lower()
+    richiesta = input("Cosa desideri? ( espresso/ latte / cappuccino ):").lower()
 
     if richiesta == "report":
         print("Risorse disponibili:")
@@ -88,11 +104,12 @@ while macchinetta:
         macchinetta = False
     elif richiesta in main.MENU:
         print(f"Un {richiesta} costa {main.MENU[richiesta]['cost']:.2f}€")
-        if pagamento(richiesta) == 1:
-            prepara_caffe(richiesta)
-            print(f"Ecco il tuo {richiesta}. Buona degustazione!")
+        if verifica_risorse(richiesta) == True:
+            if pagamento(richiesta) == 1:
+                prepara_caffe(richiesta)
+                print(f"Ecco il tuo {richiesta}. Buona degustazione!")
         else:
-            print(f"Non è stato possibile preparare il tuo {richiesta}.")
+            print("Risorse insufficienti. Riprova.")
     else:
         print("Scelta non valida. Riprova.")
 
