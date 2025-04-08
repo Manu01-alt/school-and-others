@@ -100,6 +100,12 @@ void shuffle_vec(double *v, size_t dim) {
 }
 
 void rshft_vec(double *v, size_t step, size_t dim) { 
+    if (step >= dim) {
+        for (size_t i = 0; i < dim; i++) {
+            v[i] = 0;
+        }
+        return;
+    }
     for (size_t i = dim - 1; i >= step; i--) {
         v[i] = v[i - step];
     }
@@ -109,6 +115,12 @@ void rshft_vec(double *v, size_t step, size_t dim) {
 }
 
 void lshft_vec(double *v, size_t step, size_t dim) { 
+    if (step >= dim) {
+        for (size_t i = 0; i < dim; i++) {
+            v[i] = 0;
+        }
+        return;
+    }
     for (size_t i = 0; i < dim - step; i++) {
         v[i] = v[i + step];
     }
@@ -118,6 +130,9 @@ void lshft_vec(double *v, size_t step, size_t dim) {
 }
 
 void rrot_vec(double *v, size_t step, size_t dim) {
+    if (step >= dim) {
+        return;
+    }
     for (size_t j = 0; j < step; j++) {
         double temp = v[dim - 1];
         for (size_t i = dim - 1; i > 0; i--) {
@@ -128,9 +143,11 @@ void rrot_vec(double *v, size_t step, size_t dim) {
 }
 
 void lrot_vec(double *v, size_t step, size_t dim) {
+    if (step >= dim) {
+        return;
+    }
     for (size_t j = 0; j < step; j++) {
         double temp = v[0];
-        
         for (size_t i = 0; i < dim - 1; i++) {
             v[i] = v[i + 1];
         }
@@ -150,13 +167,6 @@ void rand_vec(int *v, size_t dim, int min, int max) {
     srand(time(NULL));
     for (size_t i = 0; i < dim; i++) {
         v[i] = rand() % max + min;
-    }
-}
-
-void randf_vec(double *v, size_t dim, double min, double max) {
-    srand(time(NULL));
-    for (size_t i = 0; i < dim; i++) {
-        v[i] = (double)rand()  % max + min;
     }
 }
 
@@ -212,19 +222,14 @@ double sum_vec(const double *v, size_t dim) {
     return sum;
 }
 
-int eq_vec(const double *v1, const double *v2, size_t dim, double tol) {
+
+bool eq_vec(const double *v1, const double *v2, size_t dim, double tol) {
     for (size_t i = 0; i < dim; i++) {
         if (fabs(v1[i] - v2[i]) >= tol) {
             return false;
         }
     }
     return true;
-}
-
-int eqt_vec(const double *v1, const double *v2, size_t dim, double tol) {
-    double norm_v1 = norm_vec(v1, dim);
-    double norm_v2 = norm_vec(v2, dim);
-    return fabs(norm_v1 - norm_v2) < tol;
 }
 
 void map_vec(double *v, size_t dim, double (*func)(double)) {

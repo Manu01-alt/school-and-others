@@ -22,10 +22,8 @@ void print_menu() {
     printf("17. Valore minimo di un vettore\n");
     printf("18. Valore massimo di un vettore\n");
     printf("19. Somma degli elementi di un vettore\n");
-    printf("20. Confronto di due vettori con tolleranza (elemento per elemento)\n");
+    printf("20. Confronto di due vettori con tolleranza\n");
     printf("21. Applicazione di una funzione a ogni elemento di un vettore\n");
-    printf("22. Genera un vettore con valori casuali\n");
-    printf("23. Confronto di due vettori con tolleranza (norma)\n");
     printf("0. Esci\n");
     printf("Seleziona un'opzione: ");
 }
@@ -38,7 +36,7 @@ double increment(double x) {
 int main() {
     size_t dim = 5;
     double v1[dim], v2[dim], res[dim];
-    double scalar, tol, min, max;
+    double scalar, tol;
     int choice;
 
     do {
@@ -230,7 +228,7 @@ int main() {
                 break;
             }
 
-            case 20: { // Confronto con tolleranza (elemento per elemento)
+            case 20: { // Confronto con tolleranza
                 printf("Inserisci %lu valori per il primo vettore:\n", (unsigned long)dim);
                 scanf_vec(v1, dim);
                 printf("Inserisci %lu valori per il secondo vettore:\n", (unsigned long)dim);
@@ -238,9 +236,9 @@ int main() {
                 printf("Inserisci la tolleranza: ");
                 scanf("%lf", &tol);
                 if (eq_vec(v1, v2, dim, tol)) {
-                    printf("I vettori sono uguali entro la tolleranza (elemento per elemento).\n");
+                    printf("I vettori sono uguali entro la tolleranza.\n");
                 } else {
-                    printf("I vettori non sono uguali entro la tolleranza (elemento per elemento).\n");
+                    printf("I vettori non sono uguali entro la tolleranza.\n");
                 }
                 break;
             }
@@ -251,34 +249,6 @@ int main() {
                 map_vec(v1, dim, increment);
                 printf("Vettore dopo l'incremento di uno:\n");
                 print_vec(v1, dim);
-                break;
-            }
-
-            case 22: { // Genera un vettore con valori casuali
-                printf("Inserisci la dimensione del vettore (max %lu): ", (unsigned long)dim);
-                scanf("%lu", &dim);
-                printf("Inserisci il valore minimo: ");
-                scanf("%lf", &min);
-                printf("Inserisci il valore massimo: ");
-                scanf("%lf", &max);
-                randf_vec(v1, dim, min, max);
-                printf("Vettore generato con valori casuali:\n");
-                print_vec(v1, dim);
-                break;
-            }
-
-            case 23: { // Confronto con tolleranza (norma)
-                printf("Inserisci %lu valori per il primo vettore:\n", (unsigned long)dim);
-                scanf_vec(v1, dim);
-                printf("Inserisci %lu valori per il secondo vettore:\n", (unsigned long)dim);
-                scanf_vec(v2, dim);
-                printf("Inserisci la tolleranza: ");
-                scanf("%lf", &tol);
-                if (eqt_vec(v1, v2, dim, tol)) {
-                    printf("I vettori sono uguali entro la tolleranza (norma).\n");
-                } else {
-                    printf("I vettori non sono uguali entro la tolleranza (norma).\n");
-                }
                 break;
             }
 

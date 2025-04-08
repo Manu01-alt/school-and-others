@@ -12,16 +12,16 @@ void print_vec(const double *v, size_t dim);
 void scanf_vec(double *v, size_t dim);
 
 // —— Operazioni algebriche ——
-/** res = v1 + v2 elemento per elemento */
+/** res = v1 + v2 elemento per elemento*/
 void add_vec(const double *v1, const double *v2, double *res, size_t dim);
 
-/** res = v1 + k per ogni elemento */
+/** res = v1 + k  per ogni elemento*/
 void adds_vec(const double *v1, double k, double *res, size_t dim);
 
 /** res = v * k (moltiplicazione per scalare) */
 void muls_vec(const double *v, double k, double *res, size_t dim);
 
-/** res = v1 - v2 elemento per elemento */
+/** res = v1 - v2 ...sfruttare muls_vec() */ 
 void sub_vec(const double *v1, const double *v2, double *res, size_t dim);
 
 /** Prodotto scalare (v1 • v2) */
@@ -40,16 +40,14 @@ void sort_vec(double *v, size_t dim);
 /** Mescola gli elementi in modo casuale */
 void shuffle_vec(double *v, size_t dim);
 
-/** Shift a destra */
+/** Shift a destra*/
 void rshft_vec(double *v, size_t step, size_t dim);
-
-/** Shift a sinistra */
+/** Shift a sinistra*/
 void lshft_vec(double *v, size_t step, size_t dim);
 
-/** Rotate a destra: rispetto allo shift gli elementi che escono a destra rientrano in testa (sinistra) */
+/** Rotate a destra: rispetto allo shift gli elementi che escono a destra rientrano in testa (sinistra)*/
 void rrot_vec(double *v, size_t step, size_t dim);
-
-/** Rotate a sinistra: rispetto allo shift gli elementi che escono a sinistra rientrano in coda (destra) */
+/** Rotate a sinistra: rispetto allo shift gli elementi che escono a sinistra rientrano in coda (destra)*/
 void lrot_vec(double *v, size_t step, size_t dim);
 
 /** Copia n elementi da src a dest (n <= dim) */
@@ -59,8 +57,13 @@ void slice_vec(const double *src, double *dest, int start, int n);
 /** Riempie il vettore con valori casuali in [min, max] */
 void rand_vec(int *v, size_t dim, int min, int max);
 
-/** Riempie il vettore con valori casuali in [min, max] */
-void randf_vec(double *v, size_t dim, double min, double max);
+void rand_vec(int *v, size_t dim, double min, double max) {
+srand(time(NULL));
+    for (size_t i = 0; i < dim; i++) {
+        v[i] = min + (rand() / (RAND_MAX + 1.0)) * (max - min);
+    }
+    
+}
 
 /** Riempie il vettore con val */
 void fill_vec(double *v, size_t dim, double val);
@@ -86,10 +89,7 @@ double max_vec(const double *v, size_t dim);
 double sum_vec(const double *v, size_t dim);
 
 /** Confronta due vettori con tolleranza tol. Restituisce true se |v1_i - v2_i| < tol per tutti gli elementi */
-int eq_vec(const double *v1, const double *v2, size_t dim, double tol);
-
-/** Confronta due vettori con tolleranza tol. Restituisce true se ||v1 - v2|| < tol */
-int eqt_vec(const double *v1, const double *v2, size_t dim, double tol);
+bool eq_vec(const double *v1, const double *v2, size_t dim, double tol);
 
 /** Applica func a ogni elemento (modifica v direttamente) */
 void map_vec(double *v, size_t dim, double (*func)(double));
