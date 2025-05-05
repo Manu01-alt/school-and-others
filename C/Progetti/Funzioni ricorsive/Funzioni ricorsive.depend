@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1744186346 source:/home/okame/Compiti/C/Progetti/Funzioni ricorsive/main.c
+	<stdio.h>
+	<stdlib.h>
+	"recursive_lib.h"
+
+1744185397 /home/okame/Compiti/C/Progetti/Funzioni ricorsive/recursive_lib.h
+
+1744186800 source:/home/okame/Compiti/C/Progetti/Funzioni ricorsive/recursive_lib.c
+
