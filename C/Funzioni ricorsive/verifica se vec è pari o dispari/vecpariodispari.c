@@ -1,6 +1,3 @@
-//Questo programma verifica se tutti gli elementi di un vettore sono pari o dispari
-// utilizzando la ricorsione. La funzione `verificaPariDispari` controlla se
-
 #include <stdio.h>
 #include <stdlib.h>
 #define DIM 10
@@ -8,10 +5,10 @@
 int verificaDispari(int *vettore, int n)
 {
     if (vettore[n - 1] % 2 == 0)
-        return 0; // Trovato un numero pari
+        return 0; 
 
     if (n == 1)
-        return 1; // Tutti gli elementi sono dispari
+        return 1; 
 
     return verificaDispari(vettore, n - 1);
 }
