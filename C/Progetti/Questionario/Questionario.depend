@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1754751513 source:c:\users\pietr\onedrive\desktop\compiti\c\progetti\questionario\main.c
+	"MyLib.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1754742467 c:\users\pietr\onedrive\desktop\compiti\c\progetti\questionario\mylib.h
+
+1754754050 source:c:\users\pietr\onedrive\desktop\compiti\c\progetti\questionario\mylib.c
+	<string.h>
+	<stdlib.h>
+	<stdio.h>
+	<ctype.h>
+	"MyLib.h"
+

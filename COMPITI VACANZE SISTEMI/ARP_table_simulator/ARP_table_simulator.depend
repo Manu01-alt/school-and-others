@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1754411766 source:c:\users\pietr\onedrive\desktop\compiti\c\progetti\arp_table_simulator\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

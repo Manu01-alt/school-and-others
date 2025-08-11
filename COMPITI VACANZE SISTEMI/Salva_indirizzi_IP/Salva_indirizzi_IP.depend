@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1754405271 source:c:\users\pietr\onedrive\desktop\compiti\c\progetti\salva_indirizzi_ip\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
