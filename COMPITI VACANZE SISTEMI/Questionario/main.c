@@ -3,12 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+// Global variable for the question index
 int indice = 1;
 
 int main()
 {
     int flag = 1;
 
+    // The main loop of the program contains a switch-case that allows navigation through the menu
     while (flag)
     {
         char scelta;
@@ -38,7 +40,6 @@ int main()
         }
         }
     }
-
 
     return 0;
 }

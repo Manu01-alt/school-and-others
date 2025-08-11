@@ -10,9 +10,3 @@ B:Roma
 C:Napoli
 D:Juve
 C
-1. Quanti episodi ha l'anima oscura?
-A:80
-B:32
-C:104
-D:58
-D

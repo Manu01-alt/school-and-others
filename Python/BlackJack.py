@@ -52,8 +52,8 @@ while game:
 
         richiesta = input("Vuoi pescare un'altra carta? (s/n): ")
 
-        
-        while richiesta == "s" and status == True:
+
+        while (richiesta == "s" or richiesta == "S") and status == True:
             utente.append(random.choice(cards))
             if utente[-1] == 11 and punteggio_utente + utente[-1] > 21:
                 punteggio_utente += 1
@@ -94,7 +94,7 @@ while game:
             print("Pareggio!")
 
     richiesta = input("Vuoi giocare di nuovo? (s/n): ")
-    if richiesta == "n":
+    if richiesta == "n" or richiesta == "N":
         game = False
         os.system('cls')
         print("Grazie per aver giocato!")

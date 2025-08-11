@@ -3,82 +3,83 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "MyLib.h"
+
+//------------------------------- Function to add a question
 void aggiungi_domanda(void)
 {
-
-    FILE *file_handle = fopen("questionario.txt","a");
-    int i,e;
-    char* domanda = calloc(1,250);
-    char* opzione = calloc(1,50);
+    FILE *file_handle = fopen("questionario.txt","a"); // Opens the file in append mode
+    int i, e;
+    char* domanda = calloc(1,250); // Variable used to store the question
+    char* opzione = calloc(1,250); // Variable used to store the option
     char giusta;
-    char c = 65;
+    char c = 65;  // Variable used to store the character for the options
 
-    printf("\nInserire domanda:");
+    printf("\nInsert question:");
 
-    while ((e = getchar()) != '\n');  //pulisce il buffer
-    fgets(domanda, 250, stdin);
+    while ((e = getchar()) != '\n');  // Clears the input buffer, checking for a newline character
+    fgets(domanda, 250, stdin);       // Reads the question from the keyboard
 
-    fprintf(file_handle,"%d. %s",indice,domanda);
+    fprintf(file_handle,"%d. %s",indice,domanda); // Writes the question to the file
 
-    printf("Inserire le 4 opzioni:\n");
+    printf("Insert the 4 options:\n"); 
 
+    // Reads the options from the keyboard and writes them to the file
     for (i=0; i<4; i++)
     {
-        fgets(opzione, 250, stdin);
-        fprintf(file_handle,"%c:%s",c,opzione);
-        c++;
+        fgets(opzione, 250, stdin); 
+        fprintf(file_handle,"%c:%s",c,opzione); 
+        c++; // Increments the character for the options
     }
 
-    printf("Inserire l'opzione corretta\n");
+    printf("Insert the correct option\n");
 
-    scanf("%c",&giusta);
-    fprintf(file_handle,"%c\n",toupper(giusta));
+    scanf("%c",&giusta); // Reads the correct answer
+    fprintf(file_handle,"%c\n",toupper(giusta)); // Writes the correct answer to the file
 
-    fclose(file_handle);
-    indice++;
-    free(domanda);
-    free(opzione);
+    fclose(file_handle); // Closes the file
+    indice++;            // Increments the question index
+    // Frees the allocated memory
+    free(domanda);  
+    free(opzione);    
 }
-
+//------------------------------- Function to administer the questionnaire to the user
 void somministra_questionario(void)
 {
-    FILE *file_handle = fopen("questionario.txt","r");
+    FILE *file_handle = fopen("questionario.txt","r"); // Opens the file in read mode
     char risposta;
-    char line[250];
+    char corretta;
+    char line[250]; // Variable used to store the read line
     size_t len = sizeof(line);
-    int punteggio = 0;
+    int punteggio = 0; 
 
-    while (fgets(line,len,file_handle) != NULL)
+    // Loops through the sequence of questions and answers
+    while (fgets(line,len,file_handle) != NULL) 
     {
-        fflush(stdin);
+        fflush(stdin); // Clears the keyboard buffer
         for (int i = 0; i < 5; i++)
         {
-            printf("%s",line);
-            fgets(line,len,file_handle);
+            printf("%s",line); 
+            fgets(line,len,file_handle); // Moves to the next line
         }
 
-        char correct = line[0];
+        corretta = line[0]; // Takes the first character (the correct answer)
 
-        printf("Inserire risposta corretta:");
-        scanf("%c",&risposta);
+        printf("Insert the correct answer:");
+        scanf("%c",&risposta); // Reads the user's answer
 
-        if (toupper(risposta) != correct )
+        // Checks if the answer is correct, if so increments the score
+        if (toupper(risposta) != corretta )
         {
-            printf("\nRisposta errata.\n");
+            printf("\nWrong answer.\n");
         }
         else
         {
-            printf("\nRisposta corretta.\n");
+            printf("\nCorrect answer.\n");
             punteggio++;
-            printf("\nPunteggio: %d\n\n", punteggio);
+            printf("\nScore: %d\n\n", punteggio);
         }
 
     }
-    fclose(file_handle);
+    fclose(file_handle); // Closes the file
 }
-
-
-
-
-
 
