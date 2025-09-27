@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina</title>
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .items {
+            background: rgb(48, 40, 158);
+            padding: 32px;
+            border-radius: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="items">
+    <h1>Modulo di Registrazione all'Evento</h1>
+    <div>
+        <h2>Nome e Cognome:</h2>
+        <input type="text">
+    </div>
+
+    <div>
+        <h2>Email:</h2>
+        <input type="text">
+    </div>
+
+    <div>
+        <h2>Password:</h2>
+        <input type="text">
+    </div>
+
+    <div>
+        <h2>Genere:</h2>
+        <input type="radio" id="Male">
+        <label for="Male">Maschio</label><br>
+        <input type="radio" id="Female">
+        <label for="Female">Femmina</label><br>
+        <input type="radio" id="Other">
+        <label for="Other">Altro</label><br>
+    </div>
+
+    <div>
+        <h2>Preferenze:</h2>
+        <input type="checkbox" id="newsletter">
+        <label for="newsletter">Iscrivimi alla newsletter</label><br>
+        <input type="checkbox" id="termini">
+        <label for="termini">Accetto i termini e condizioni</label>
+    </div>
+
+    <div>   
+        <h2>Paese di provenienza:</h2>
+        <select id="paese">
+            <option value="Seleziona">- Seleziona -</option>
+            <option value="Italia">Italia</option>
+            <option value="Francia">Francia</option>
+        </select>
+    </div>
+    
+    <div>
+        <h2>Note Aggiuntive:</h2>
+        <textarea name="Note" id="Notes"></textarea>
+    </div>
+
+    <div>
+        <h2>Data di nascita:</h2>
+        <input type="date">
+    </div>
+
+    
+    <div>
+        <h2>Carica documento (PDF o immagine):</h2>
+        <input type="file">
+    </div>
+
+    <div>
+        <button>Invia</button>
+        <button>Reset</button>
+    </div>
+</div>
+</body>
+</html>

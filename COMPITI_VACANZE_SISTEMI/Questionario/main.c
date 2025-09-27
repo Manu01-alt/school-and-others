@@ -15,7 +15,7 @@ int main()
     while (flag)
     {
         char scelta;
-        printf("\n--------------------------------\nScegliere un opzione:\nA - Aggiungi domanda\nS - Somministra questionario\nC - Cancella domanda\nF - Pulisci File\nX - Termina.\n>");
+        printf("\n--------------------------------\nScegliere un opzione:\nA - Aggiungi domanda\nS - Somministra questionario\nC - Cancella domanda\nX - Termina.\n>");
         fflush(stdin);
         scanf("%c", &scelta);
 
@@ -27,18 +27,13 @@ int main()
         case 'S' :
             somministra_questionario();
             break;
-        /*case 'C':
-            cancella_domanda;
-            break;*/
+        case 'C':
+            cancella_domanda();
+            break;
         case 'X':
+            printf("\nBye!!\n");
             flag = 0;
             break;
-        case 'F':
-        {
-            FILE *file_handle = fopen("questionario.txt","w");
-            fclose(file_handle);
-            printf("\nPulizia del file completata\n");
-        }
         }
     }
 
