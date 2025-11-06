@@ -1,4 +1,3 @@
-
 public class Veicolo {
 	
 	private String targa;
