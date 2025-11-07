@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form di login</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <div id="login-container">
+        <h2>Login</h2>
+        
+        <div>
+        <h3>Username:</h3>
+        <input type="text" id="username"></input>
+        </div>
+
+        <div>
+        <h3>Password:</h3>
+        <input type="password" id="password"></input>
+        </div>
+
+        <button id="login-button" onclick="handleLogin()">Log-in</button>
+
+        <div id="messaggio"></div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
