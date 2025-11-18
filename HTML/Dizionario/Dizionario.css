@@ -1,0 +1,153 @@
+/* Corpo della pagina: impostazioni generali di layout e font */
+/* font di sistema senza import esterni */
+body {
+	/* famiglia di font di sistema */
+	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	/* sfondo a gradiente per un look leggero */
+	background: linear-gradient(135deg, #fff7f2, #f0fbff);
+	/* colore principale del testo */
+	color: #0b1220;
+	/* layout flessibile per centrare il contenuto verticalmente in colonna */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start; /* mantiene il titolo in alto */
+	/* garanzia altezza minima della viewport */
+	min-height: 100vh;
+	/* spazi interni attorno al contenuto */
+	padding: 24px 16px 40px;
+}
+
+/* Contenitore principale (card) che contiene form e risultati */
+body > div {
+	/* larghezza adattiva con un massimo */
+	width: 100%;
+	max-width: 720px;
+	/* sfondo della card */
+	background: #ffffff;
+	/* angoli smussati */
+	border-radius: 14px;
+	/* padding interno della card */
+	padding: 20px 22px;
+	/* ombra leggera sotto la card */
+	box-shadow: 0 10px 30px rgba(13, 27, 40, 0.06);
+	/* spazio superiore per evitare sovrapposizione con il titolo fissato */
+	margin-top: 64px;
+}
+
+/* Stili per il titolo principale */
+h1 {
+	/* centra il testo */
+	text-align: center;
+	/* dimensione del font del titolo */
+	font-size: 22px;
+	/* rimuove margini di default */
+	margin: 0;
+	/* colore accento per il titolo */
+	color: #06b6d4;
+	/* posizione fissa per tenerlo sempre visibile in alto */
+	position: fixed;
+	top: 18px;
+	left: 50%;
+	transform: translateX(-50%);
+	/* sopra altri elementi */
+	z-index: 20;
+}
+
+/* Sottotitolo/label sopra l'input */
+div > h3 {
+    /* margine inferiore per separazione dall'input */
+	font-size: 14px;
+    /* colore grigio per il testo secondario */
+	color: #6b7280;
+    /*margin inferiore per separazione dall'input */
+	margin-bottom: 8px;
+}
+/* Input di testo per la parola da tradurre */ /* descrizione del blocco */
+input[id="wordInput"] { /* seleziona l'input con id "wordInput" */
+    width: 50%; /* larghezza pari al 50% del contenitore */
+    padding: 12px; /* spazio interno attorno al testo */
+    border-radius: 12px; /* angoli arrotondati */
+    border: 1px solid rgba(11, 18, 32, 0.06); /* bordo sottile e trasparente */
+    box-shadow: 0 6px 18px rgba(11, 18, 32, 0.03); /* ombra leggera per profondità */
+    font-size: 15px; /* dimensione del testo */
+    margin-bottom: 10px; /* spazio sotto l'input */
+}
+
+/* Stato di focus per l'input (quando l'utente ci clicca sopra) */
+input[id="wordInput"]:focus { /* stile attivo quando l'input è focalizzato */
+    outline: none; /* rimuove il bordo di default del browser */
+    border-color: #06b6d4; /* cambia il colore del bordo in azzurro */
+    box-shadow: 0 8px 22px rgba(6, 182, 212, 0.08); /* ombra più evidente al focus */
+}
+
+/* Pulsante principale per tradurre */
+button[id="Traduci"] { /* seleziona il bottone con id "Traduci" */
+    background: #ff6b6b; /* colore di sfondo rosso/rosa */
+    color: white; /* testo bianco */
+    border: none; /* nessun bordo visibile */
+    padding: 10px 14px; /* padding verticale e orizzontale */
+    border-radius: 12px; /* angoli arrotondati */
+    cursor: pointer; /* cursore a mano al passaggio */
+    font-weight: 600; /* testo semi-bold */
+    margin-right: 8px; /* margine destro per separarlo da altri elementi */
+}
+
+/* Pulsante secondario per mostrare tutte le parole */
+button[id="MostraTutte"] { /* seleziona il bottone con id "MostraTutte" */
+    background: transparent; /* sfondo trasparente */
+    color: #06b6d4; /* testo azzurro */
+    border: 2px solid rgba(6, 182, 212, 0.12); /* bordo sottile azzurrato */
+    padding: 8px 12px; /* padding del bottone */
+    border-radius: 12px; /* angoli arrotondati */
+    cursor: pointer; /* cursore a mano */
+    font-weight: 600; /* testo semi-bold */
+}
+
+/* Hover sul pulsante traduci (leggero effetto) */
+#Traduci:hover, button[id="Traduci"]:hover { /* effetto al passaggio del mouse */
+    filter: brightness(.95); /* abbassa leggermente la luminosità */
+}
+
+/* Hover sul pulsante mostra tutte */
+#MostraTutte:hover, button[id="MostraTutte"]:hover { /* effetto hover per l'altro bottone */
+    background: rgba(6, 182, 212, 0.04); /* leggera sfumatura di sfondo azzurra */
+}
+
+/* Area dove appare il risultato della traduzione */
+#translationResult, div[id="translationResult"] { /* contenitore del risultato */
+    margin-top: 12px; /* spazio sopra */
+    padding: 12px; /* padding interno */
+    border-radius: 12px; /* angoli arrotondati */
+    background: linear-gradient(90deg, rgba(255, 235, 238, 0.6), rgba(240, 249, 255, 0.6)); /* sfondo sfumato leggero */
+    min-height: 40px; /* altezza minima per evitare collasso */
+    display: flex; /* layout flex per allineare eventuale contenuto */
+    align-items: center; /* centra verticalmente il contenuto */
+}
+
+/* Contenitore per la lista/tabella di tutte le parole */
+#allWordsList, div[id="allWordsList"] { /* contenitore della lista */
+    margin-top: 14px; /* spazio superiore */
+}
+
+/* Stili base per la tabella delle parole */
+table { /* stile generale per le tabelle */
+    width: 100%; /* occupa tutta la larghezza disponibile */
+    border-collapse: collapse; /* elimina gli spazi tra i bordi delle celle */
+    margin-top: 10px; /* spazio sopra la tabella */
+    font-size: 14px; /* dimensione del testo nella tabella */
+}
+
+/* Celle della tabella */
+th,
+td { /* stile condiviso per intestazioni e celle */
+    padding: 10px 8px; /* padding interno delle celle */
+    text-align: left; /* allineamento del testo a sinistra */
+    border-bottom: 1px solid rgba(11, 18, 32, 0.04); /* linea sottile di separazione orizzontale */
+}
+
+/* Intestazioni della tabella */
+th { /* stile specifico per le intestazioni */
+    font-weight: 600; /* testo semi-bold */
+    color: #6b7280; /* colore grigio per il testo delle intestazioni */
+}

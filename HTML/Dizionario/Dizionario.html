@@ -1,25 +1,52 @@
+<!-- Dichiara il tipo di documento HTML5 -->
 <!DOCTYPE html>
+<!-- Apertura del tag html; 'lang' indica la lingua della pagina -->
 <html lang="en">
+<!-- Sezione head: contiene metadati e link a risorse esterne -->
 <head>
+    <!-- Definisce la codifica dei caratteri usata nella pagina -->
     <meta charset="UTF-8">
+    <!-- Impostazioni per il corretto ridimensionamento su dispositivi mobili -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titolo della pagina che appare nella scheda del browser -->
     <title>Dizionario</title>
+    <!-- Collega il foglio di stile CSS locale per il layout e i colori -->
     <link rel="stylesheet" href="Dizionario.css">
 </head>
+<!-- Corpo della pagina: qui va il contenuto visibile all'utente -->
 <body>
 
-     <h1>DIZIONARIO ITALIANO-INGLESE</h1>
+    <!-- Titolo principale della pagina (posizionato in alto tramite CSS) -->
+    <h1>DIZIONARIO ITALIANO-INGLESE</h1>
+
+    <!-- Contenitore principale che include input, pulsanti e risultati -->
     <div>
+        <!-- Testo guida che spiega cosa inserire nell'input -->
         <h3>Inserisci una parola da tradurre:</h3>
+        <!-- Campo di input per digitare la parola (ha id per essere selezionato da JS) -->
         <input type="text" id="wordInput" placeholder="Inserisci parola...">
+        <!-- Pulsante che, se premuto, chiama la funzione di traduzione in JS -->
         <button id="Traduci">Traduci!</button>
+        <!-- Line break per separazione visiva -->
         <br>
+        <!-- Elemento dove verrà mostrata la traduzione (inizialmente vuoto) -->
         <div id="translationResult"></div>
 
+        <!-- Line break per separazione visiva -->
         <br>
+        <!-- Pulsante che mostra tutte le parole del dizionario quando premuto -->
         <button id="MostraTutte">Mostra tutte le parole</button>
+        <!-- Contenitore dove verrà inserita la tabella con tutte le parole -->
         <div id="allWordsList"></div>
+
+        <!-- Input per aggiungere una nuova parola italiana al dizionario -->
+        <input type="text" id="newItalianWord" placeholder="Nuova parola italiana...">
+        <!-- Input per la traduzione inglese della nuova parola -->
+        <input type="text" id="newEnglishWord" placeholder="Traduzione inglese...">
+        <!-- Pulsante per aggiungere la coppia di parole al dizionario (se presente in JS) -->
+        <button id="AggiungiParola">Aggiungi parola</button>
     </div>
+    <!-- Include il file JavaScript che gestisce la logica dell'app -->
     <script src="Dizionario.js"></script>
 </body>
 </html>

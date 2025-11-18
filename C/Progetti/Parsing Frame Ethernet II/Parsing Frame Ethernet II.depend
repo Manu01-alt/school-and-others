@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1763067849 source:c:\users\pietr\onedrive\desktop\compiti\c\progetti\parsing frame ethernet ii\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
