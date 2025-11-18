@@ -1,8 +1,10 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class LibreriaMusicale {
     private String titolo;
     ArrayList<Brano> brani;
+    private double durataMediaBrani;
 
     //costruttore
     public LibreriaMusicale(int dim, String titolo) {
@@ -16,6 +18,12 @@ public class LibreriaMusicale {
     }
 
 
+    /**
+     * Aggiunge un brano alla libreria musicale.
+     * @param brano
+     * @return true se il brano è stato aggiunto con successo, false altrimenti.
+     * @throws IllegalArgumentException
+     */
     public boolean aggiungiBrano(Brano brano) throws IllegalArgumentException {
         //Try catch per argomenti nulli o duplicati
         try {
@@ -26,7 +34,6 @@ public class LibreriaMusicale {
                 throw new IllegalArgumentException("Il brano è già presente nella libreria.");
             }
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
             return false;
         }
 
@@ -35,7 +42,13 @@ public class LibreriaMusicale {
     }
 
 
-
+    /**
+     * Rimuove un brano dalla libreria musicale.
+     * @param titolo
+     * @param artista
+     * @return true se il brano è stato rimosso con successo, false altrimenti.
+     * @throws IllegalArgumentException
+     */
     public boolean rimuoviBrano(String titolo, String artista) throws IllegalArgumentException {
         //Try catch per argomenti nulli
         try {
@@ -47,23 +60,12 @@ public class LibreriaMusicale {
             }
         }
         catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
             return false;
         }
         
-
-        //Try catch per lista vuota
-        try {
-            if (brani.isEmpty()) {
-                throw new EmptyListExcepion("La libreria è vuota.");
-            }
-        } catch (EmptyListExcepion e) {
-            System.out.println(e.getMessage());
+        if (brani.isEmpty())
             return false;
-        }
 
-        //Try catch per brano non trovato
-        try {
         for (int i = 0; i < brani.size(); i++) {
             Brano brano = brani.get(i);
             if (brano.getTitolo().equals(titolo) && brano.getArtista().equals(artista)) {
@@ -71,17 +73,136 @@ public class LibreriaMusicale {
                 return true;
             }
         }
-        throw new ElementNotFoundException("Il brano non è stato trovato nella libreria.");
-        }
-        catch (ElementNotFoundException e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
-    
+        return false;
     }
 
-    
+    /**
+     * Calcola i minuti totali ascoltati nella libreria musicale.
+     * @return i minuti totali ascoltati, -1 se la libreria è vuota.
+     */
+    public int getMinutiAscoltati() {
+        int MinutiTot = 0;
+        
+        if (brani.isEmpty())
+            return -1;
+        
+        for (int i = 0; i < brani.size(); i++) {
+            Brano brano = brani.get(i);
+            MinutiTot += brano.getDurataSec() * brano.getAscolti();
+        }
+
+        return MinutiTot / 60;
+
+    }
 
 
+    /**
+     * Restituisce una lista di brani appartenenti a un genere specifico.
+     * @param genere
+     * @return una lista di brani del genere specificato.
+     */
+    public ArrayList<Brano> braniPerGenere(String genere) {
+        ArrayList<Brano> braniGenere = new ArrayList<Brano>();
+
+        if (brani.isEmpty())
+            return braniGenere;
+
+        for (int i = 0; i < brani.size(); i++) {
+            Brano brano = brani.get(i);
+            if (brano.getGenere().equals(genere)) 
+                braniGenere.add(brano);
+        }
+
+        return braniGenere;
+    }
+
+    /**
+     * Conta il numero di brani di un artista specifico.
+     * @param artista
+     * @return il numero di brani dell'artista specificato, -1 se la libreria è vuota.
+     */
+    public int contaBraniPerArtista(String artista) {
+        int numeroBrani = 0;
+
+        //Try catch per lista vuota
+        if (brani.isEmpty())
+            return -1;
+
+        for (int i = 0; i < brani.size(); i++) {
+            Brano brano = brani.get(i);
+            if (brano.getArtista().equals(artista))
+                numeroBrani++;
+        }
+        return numeroBrani;
+    }
+
+    /**
+     * Restituisce il brano più ascoltato nella libreria musicale.
+     * @return il brano più ascoltato, null se la libreria è vuota.
+     */
+    public Brano piuAscoltato() {
+        Brano temp = null;
+        Brano brano = null;
+        int max_tempo = 0;
+
+        if (brani.isEmpty())
+            return brano;
+
+        for (int i = 0; i < brani.size(); i++) {
+            temp = brani.get(i);
+            int tempo_ascoltato = temp.getDurataSec() * temp.getAscolti();
+            
+            if (tempo_ascoltato > max_tempo) {
+                max_tempo = tempo_ascoltato;
+                brano = temp;
+            }
+        }
+        return brano;
+    }
+
+    /**
+     * Restituisce una lista di brani mescolati casualmente di un genere specifico e con durata massima.
+     * @param genere
+     * @param durataMax
+     * @return una lista di brani mescolati casualmente.
+     */
+    public ArrayList<Brano> shuffleConSeed(String genere, int durataMax) {
+        ArrayList<Brano> shuffled_list = new ArrayList<Brano>();
+        int sommaDurata = 0;
+        
+        if (brani.isEmpty())
+            return shuffled_list;
+
+        for(int i = 0; i < brani.size(); i++) {
+            Brano brano = brani.get(i);
+            if (brano.getGenere().equals(genere) && sommaDurata <= durataMax) {
+                shuffled_list.add(brano);
+                sommaDurata += brano.getDurataSec();
+            }
+        }
+        
+        Collections.shuffle(shuffled_list);
+        return shuffled_list;
+
+    }
+
+    /**
+     * Calcola la durata media dei brani nella libreria musicale.
+     * @return la durata media dei brani.
+     */
+    public double calcolaDurataMediaBrani() {
+        double durataTot = 0.0;
+
+        if (brani.isEmpty())
+            return durataTot;
+
+        for (int i = 0; i < brani.size(); i++) {
+            Brano brano = brani.get(i);
+            durataTot += brano.getDurataSec();
+        }
+
+        durataMediaBrani = durataTot / brani.size();
+        return durataMediaBrani;
+    }
 
 }
