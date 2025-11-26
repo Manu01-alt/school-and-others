@@ -3,15 +3,14 @@ import java.time.LocalDate;
 public class Libro extends Pubblicazione {
     private String ISBN;
     private String autore;
-
     //costruttore
-    public Libro(String titolo, LocalDate dataPubblicazione, int numPagine, String ISBN, String autore) {
-        super(titolo, dataPubblicazione, numPagine);
+    public Libro(String titolo, LocalDate dataPubblicazione, LocalDate dataRestituzione, boolean disponibile, String RecapitoLettore, int numPagine, String ISBN, String autore) {
+        super(titolo, dataPubblicazione, dataRestituzione, disponibile, RecapitoLettore, numPagine);
         this.ISBN = ISBN;
         this.autore = autore;
     }
 
-    //getters and setters
+    //getter e setter
     public String getISBN() {
         return ISBN;
     }
