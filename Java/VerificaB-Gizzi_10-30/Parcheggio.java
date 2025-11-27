@@ -22,15 +22,10 @@ public class Parcheggio {
 	 * @param targa - per la ricerca del veicolo
 	 */
 	public void rimuoviVeicolo(String targa) {
-		try {
 		for (int i = 0; i < veicoli.size(); i++) {
 			if (veicoli.get(i).getTarga().equals(targa)) {
 				veicoli.remove(i);
 			}
-		}
-		}
-		catch (IndexOutOfBoundsException e) {
-			System.out.println("Errore: " + e.getMessage());
 		}
 	}
 	
@@ -40,14 +35,9 @@ public class Parcheggio {
 	 * @return Veicolo trovato o null
 	 */
 	public Veicolo cercaVeicolo(String targa) {
-		try {
 		for (int i = 0; i < veicoli.size(); i++) {
 			if (veicoli.get(i).getTarga().equals(targa)) 
 				return veicoli.get(i);
-		}
-		}
-		catch (IndexOutOfBoundsException e) {
-			System.out.println("Errore: " + e.getMessage());
 		}
 		return null;
 		}
@@ -72,13 +62,8 @@ public class Parcheggio {
 	 */
 	public double incassoTotale() {
 		double somma = 0;
-		try {
 		for (int i = 0; i < veicoli.size(); i++) {
 			somma += (veicoli.get(i).getTariffaOraria() * veicoli.get(i).getOreSosta());
-		}
-		}
-		catch (IndexOutOfBoundsException e) {
-			System.out.println("Errore: " + e.getMessage());
 		}
 		return somma;
 	}
@@ -89,13 +74,8 @@ public class Parcheggio {
 	 */
 	public String toString() {
 		String stringhe = "";
-		try {
 		for (int i = 0; i < veicoli.size(); i++) {
 			stringhe += "Veicolo " + (i+1) + " :" + veicoli.get(i).toString() + "\n";
-		}
-		}
-		catch (IndexOutOfBoundsException e) {
-			System.out.println("Errore: " + e.getMessage());
 		}
 		return stringhe;
 	}

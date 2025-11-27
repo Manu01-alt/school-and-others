@@ -144,7 +144,11 @@ public class LibreriaMusicale {
             return -1;
         }
 
+<<<<<<< HEAD
         //Try catch per lista vuota
+=======
+        
+>>>>>>> da20252502077e6d168cfd8333fad008d9eb3f21
         if (brani.isEmpty())
             return -1;
 

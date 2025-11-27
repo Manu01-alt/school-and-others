@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1763668998 source:c:\users\pietr\onedrive\desktop\compiti\ethernetframeii\tables.c
+	<stdint.h>
+	"tables.h"
+	<stddef.h>
+
+1763668998 c:\users\pietr\onedrive\desktop\compiti\ethernetframeii\tables.h
+	<stdint.h>
+
