@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="MainController">
+
+    <!-- padding esterno del BorderPane -->
+    <padding>
+        <Insets top="12" right="12" bottom="12" left="12"/>
+    </padding>
+
+    <!-- TOP: titolo + controlli + separatore -->
+    <top>
+        <VBox spacing="10">
+            <children>
+
+                <!-- Titolo centrato -->
+                <Label text="Classi Itis Leonardo da Vinci" maxWidth="1.7976931348623157E308" alignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="18"/>
+                    </font>
+                </Label>
+
+                <!-- Grid dei controlli -->
+                <GridPane hgap="14" vgap="10">
+                    <padding>
+                        <Insets top="10" right="6" bottom="10" left="6"/>
+                    </padding>
+
+                    <!-- Vincoli colonne -->
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="80"/>
+                        <ColumnConstraints minWidth="240" hgrow="ALWAYS"/>
+                        <ColumnConstraints minWidth="30"/>
+                        <ColumnConstraints minWidth="140"/>
+                    </columnConstraints>
+
+                    <children>
+                        <!-- Riga 0 -->
+                        <Label text="Anni scolastici" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+
+                        <ComboBox fx:id="cmbAnni"
+                                  prefWidth="1.7976931348623157E308"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                        <Button fx:id="btnCarica"
+                                text="Carica Studenti"
+                                maxWidth="1.7976931348623157E308"
+                                onAction="#onCarica"
+                                GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+                        <!-- Riga 1 -->
+                        <Label text="Classe" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+
+                        <ComboBox fx:id="cmbClassi"
+                                  prefWidth="1.7976931348623157E308"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                        <Button fx:id="btnAggiungi"
+                                text="Aggiungi Studente"
+                                maxWidth="1.7976931348623157E308"
+                                onAction="#onAggiungi"
+                                GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+                    </children>
+                </GridPane>
+
+                <Separator/>
+
+            </children>
+        </VBox>
+    </top>
+
+    <!-- CENTER: area risultati -->
+    <center>
+        <TextArea fx:id="taStudenti"
+                  editable="false"
+                  wrapText="false"
+                  text="Studenti&#10;Rossi Mario 2002&#10;Rossi Paolo 2003&#10;Verdi Mario 2006"/>
+    </center>
+
+</BorderPane>
