@@ -9,7 +9,9 @@ import javafx.scene.layout.BorderPane;
 public class ConvertiValuta3 extends Application{
     public void start(Stage stage) {
 
+
         GridPane grid = new GridPane();
+        
         BorderPane root = new BorderPane();
 
         grid.setHgap(10);
