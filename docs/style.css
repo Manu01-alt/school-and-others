@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    background-color: #67a3bb;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.mostraNumero {
+    --token-size: 120px;
+    width: var(--token-size);
+    height: var(--token-size);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(var(--token-size) * 0.38);
+    font-weight: 800;
+    color: #9b0b0b;
+    background: #f0dcc0;
+    border: 12px solid #b80b1b; 
+    text-align: center;
+    line-height: 1;
+    margin: 0 auto;
+}
+
+.tabella {
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-gap: 5px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.cella {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #000;
+    border-width: 3px;
+    border-radius: 90px;
+    background-color: #f0f0f0;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+}
+
+.cella-estratta {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 90px;
+    border: 1px solid #b80b1b;
+    border-width: 3px;
+    background-color: #f0dcc0;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    color: #9b0b0b;
+}
+
+.cartelle-section {
+    margin-top: 30px;
+}
+
+.cartelle-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.cartella {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 3px;
+    width: 100%;
+    max-width: 300px;
+    border: 3px solid #333;
+    padding: 8px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.cartella-cella {
+    border: 1px solid #999;
+    background: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    height: 32px;
+    border-radius: 3px;
+}
+
+
+.cartella-cella-estratta {
+    background: #f0dcc0;
+    color: #9b0b0b;
+    font-weight: bold;
+    border-color: #b80b1b;
+}
