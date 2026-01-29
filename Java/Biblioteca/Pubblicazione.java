@@ -1,4 +1,4 @@
-    import java.time.LocalDate;
+import java.time.LocalDate;
 
 public class Pubblicazione {
     protected static int num = 0;
@@ -58,8 +58,8 @@ public class Pubblicazione {
         return dataRestituzione;
     }
 
-    public void setDataRestituzione(LocalDate dataRestituzione) {
-        this.dataRestituzione = dataRestituzione;
+    public void setDataRestituzione() {
+        this.dataRestituzione = null;
     }
 
     public String getRecapitoLettore() {
@@ -69,6 +69,7 @@ public class Pubblicazione {
     public void setRecapitoLettore(String recapitoLettore) {
         RecapitoLettore = recapitoLettore;
     }
+
 
     //metodo
 

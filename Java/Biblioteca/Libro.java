@@ -27,7 +27,13 @@ public class Libro extends Pubblicazione {
         this.autore = autore;
     }
 
+    @Override
+    public void setDataRestituzione() {
+        this.dataRestituzione = LocalDate.now().plusDays(2);
+    }
+
     //metodo
+
     public String toString() {
         return super.toString() + ", ISBN=" + ISBN + ", autore=" + autore;
     }

@@ -30,17 +30,17 @@ public class Biblioteca {
      * @param RecapitoLettore Il recapito del lettore che prende in prestito la pubblicazione.
      * @return Messaggio di conferma o errore.
      */
+    //farla senza uso di instance of
     public String Prestito(Pubblicazione p, String RecapitoLettore) {
-        if (pubblicazioni.contains(p)) {
+        if (p.isDisponibile()) {
             p.setDisponibile(false);
-            p.setDataRestituzione(null);
             p.setRecapitoLettore(RecapitoLettore);
-            rimuoviPubblicazione(p);
-            return "Prestito avvenuto con successo, recapito lettore: " + RecapitoLettore;
-        }
-        else {
-            return "Errore nel prestito, la pubblicazione non è presente in biblioteca";
-        }
+            p.setDataRestituzione();
+            return "Prestito avvenuto con successo, la pubblicazione sarò disponibile a partire dal " + p.getDataRestituzione();
+       }
+       else {
+           return "Errore: la pubblicazione non è disponibile per il prestito.";
+       }
     }
 
     /**
@@ -50,13 +50,8 @@ public class Biblioteca {
      */
     public String Restituzione(Pubblicazione p) {
         p.setDisponibile(true);
-        if (p instanceof Libro) {
-            p.setDataRestituzione(((Libro) p).getDataPubblicazione().plusDays(60));
-        } else if (p instanceof Rivista) {
-            p.setDataRestituzione(((Rivista) p).getDataPubblicazione().plusDays(30));
-        }
-        p.setRecapitoLettore(null);
-        aggiungiPubblicazione(p);
-        return "Restituzione avvenuta con successo. Data di restituzione: " + p.getDataRestituzione();
+        p.setRecapitoLettore("");
+        p.setDataRestituzione();
+        return "Restituzione avvenuta con successo in data " + p.getDataRestituzione();
     }
 }

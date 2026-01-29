@@ -18,6 +18,11 @@ public class Rivista extends Pubblicazione {
         this.patinata = patinata;
     }
 
+    @Override
+    public void setDataRestituzione() {
+        this.dataRestituzione = LocalDate.now().plusDays(30);
+    }
+
     //metodo
     public String toString() {
         return super.toString() + ", patinata=" + patinata;

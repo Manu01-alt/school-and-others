@@ -2,6 +2,7 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Benvenuti nella Biblioteca! è il " + LocalDate.now());
         Biblioteca biblioteca = new Biblioteca();
 
         Libro libro1 = new Libro("Il Signore degli Anelli", LocalDate.of(1954, 7, 29), null, true, "", 1216, "978-0261102385", "J.R.R. Tolkien");

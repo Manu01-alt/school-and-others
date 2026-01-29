@@ -1,0 +1,1 @@
+#define MYLIB_H
